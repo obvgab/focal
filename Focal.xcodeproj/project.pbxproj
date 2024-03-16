@@ -11,6 +11,11 @@
 		0286422F2BA4E34100A7B1F6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0286422E2BA4E34100A7B1F6 /* ContentView.swift */; };
 		028642312BA4E34200A7B1F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 028642302BA4E34200A7B1F6 /* Assets.xcassets */; };
 		028642352BA4E34200A7B1F6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 028642342BA4E34200A7B1F6 /* Preview Assets.xcassets */; };
+		0286423F2BA4EB9600A7B1F6 /* MLX in Frameworks */ = {isa = PBXBuildFile; productRef = 0286423E2BA4EB9600A7B1F6 /* MLX */; };
+		028642412BA4EB9600A7B1F6 /* MLXNN in Frameworks */ = {isa = PBXBuildFile; productRef = 028642402BA4EB9600A7B1F6 /* MLXNN */; };
+		028642442BA4EB9E00A7B1F6 /* MLXLinalg in Frameworks */ = {isa = PBXBuildFile; productRef = 028642432BA4EB9E00A7B1F6 /* MLXLinalg */; };
+		02EFD6A62BA5F0ED00CB4F2A /* View+Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EFD6A52BA5F0ED00CB4F2A /* View+Rotation.swift */; };
+		02EFD6A82BA5F11500CB4F2A /* Oklab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EFD6A72BA5F11500CB4F2A /* Oklab.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +25,8 @@
 		028642302BA4E34200A7B1F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		028642322BA4E34200A7B1F6 /* Focal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Focal.entitlements; sourceTree = "<group>"; };
 		028642342BA4E34200A7B1F6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		02EFD6A52BA5F0ED00CB4F2A /* View+Rotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Rotation.swift"; sourceTree = "<group>"; };
+		02EFD6A72BA5F11500CB4F2A /* Oklab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Oklab.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +34,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				028642412BA4EB9600A7B1F6 /* MLXNN in Frameworks */,
+				028642442BA4EB9E00A7B1F6 /* MLXLinalg in Frameworks */,
+				0286423F2BA4EB9600A7B1F6 /* MLX in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +48,7 @@
 			children = (
 				0286422B2BA4E34100A7B1F6 /* Focal */,
 				0286422A2BA4E34100A7B1F6 /* Products */,
+				028642422BA4EB9E00A7B1F6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +65,8 @@
 			children = (
 				0286422C2BA4E34100A7B1F6 /* FocalApp.swift */,
 				0286422E2BA4E34100A7B1F6 /* ContentView.swift */,
+				02EFD6A52BA5F0ED00CB4F2A /* View+Rotation.swift */,
+				02EFD6A72BA5F11500CB4F2A /* Oklab.swift */,
 				028642302BA4E34200A7B1F6 /* Assets.xcassets */,
 				028642322BA4E34200A7B1F6 /* Focal.entitlements */,
 				028642332BA4E34200A7B1F6 /* Preview Content */,
@@ -67,6 +80,13 @@
 				028642342BA4E34200A7B1F6 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		028642422BA4EB9E00A7B1F6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -85,6 +105,11 @@
 			dependencies = (
 			);
 			name = Focal;
+			packageProductDependencies = (
+				0286423E2BA4EB9600A7B1F6 /* MLX */,
+				028642402BA4EB9600A7B1F6 /* MLXNN */,
+				028642432BA4EB9E00A7B1F6 /* MLXLinalg */,
+			);
 			productName = Focal;
 			productReference = 028642292BA4E34100A7B1F6 /* Focal.app */;
 			productType = "com.apple.product-type.application";
@@ -113,6 +138,9 @@
 				Base,
 			);
 			mainGroup = 028642202BA4E34100A7B1F6;
+			packageReferences = (
+				0286423D2BA4EB9600A7B1F6 /* XCRemoteSwiftPackageReference "mlx-swift" */,
+			);
 			productRefGroup = 0286422A2BA4E34100A7B1F6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -139,7 +167,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02EFD6A82BA5F11500CB4F2A /* Oklab.swift in Sources */,
 				0286422F2BA4E34100A7B1F6 /* ContentView.swift in Sources */,
+				02EFD6A62BA5F0ED00CB4F2A /* View+Rotation.swift in Sources */,
 				0286422D2BA4E34100A7B1F6 /* FocalApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,6 +304,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -282,8 +313,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -312,6 +343,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -320,8 +352,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -359,6 +391,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0286423D2BA4EB9600A7B1F6 /* XCRemoteSwiftPackageReference "mlx-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ml-explore/mlx-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.10.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0286423E2BA4EB9600A7B1F6 /* MLX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0286423D2BA4EB9600A7B1F6 /* XCRemoteSwiftPackageReference "mlx-swift" */;
+			productName = MLX;
+		};
+		028642402BA4EB9600A7B1F6 /* MLXNN */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0286423D2BA4EB9600A7B1F6 /* XCRemoteSwiftPackageReference "mlx-swift" */;
+			productName = MLXNN;
+		};
+		028642432BA4EB9E00A7B1F6 /* MLXLinalg */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0286423D2BA4EB9600A7B1F6 /* XCRemoteSwiftPackageReference "mlx-swift" */;
+			productName = MLXLinalg;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 028642212BA4E34100A7B1F6 /* Project object */;
 }
