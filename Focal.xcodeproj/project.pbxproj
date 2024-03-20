@@ -14,6 +14,11 @@
 		0286423F2BA4EB9600A7B1F6 /* MLX in Frameworks */ = {isa = PBXBuildFile; productRef = 0286423E2BA4EB9600A7B1F6 /* MLX */; };
 		028642412BA4EB9600A7B1F6 /* MLXNN in Frameworks */ = {isa = PBXBuildFile; productRef = 028642402BA4EB9600A7B1F6 /* MLXNN */; };
 		028642442BA4EB9E00A7B1F6 /* MLXLinalg in Frameworks */ = {isa = PBXBuildFile; productRef = 028642432BA4EB9E00A7B1F6 /* MLXLinalg */; };
+		02936E492BAB64F600231C81 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02936E482BAB64F600231C81 /* Sample.swift */; };
+		02936E4C2BAB65E400231C81 /* TunedTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02936E4B2BAB65E400231C81 /* TunedTransform.swift */; };
+		02936E502BAB664E00231C81 /* deuteranopia.png in Resources */ = {isa = PBXBuildFile; fileRef = 02936E4D2BAB664E00231C81 /* deuteranopia.png */; };
+		02936E512BAB664E00231C81 /* original.png in Resources */ = {isa = PBXBuildFile; fileRef = 02936E4E2BAB664E00231C81 /* original.png */; };
+		02936E522BAB664E00231C81 /* protanopia.png in Resources */ = {isa = PBXBuildFile; fileRef = 02936E4F2BAB664E00231C81 /* protanopia.png */; };
 		02EFD6A62BA5F0ED00CB4F2A /* View+Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EFD6A52BA5F0ED00CB4F2A /* View+Rotation.swift */; };
 		02EFD6A82BA5F11500CB4F2A /* Oklab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EFD6A72BA5F11500CB4F2A /* Oklab.swift */; };
 /* End PBXBuildFile section */
@@ -25,6 +30,11 @@
 		028642302BA4E34200A7B1F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		028642322BA4E34200A7B1F6 /* Focal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Focal.entitlements; sourceTree = "<group>"; };
 		028642342BA4E34200A7B1F6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		02936E482BAB64F600231C81 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
+		02936E4B2BAB65E400231C81 /* TunedTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunedTransform.swift; sourceTree = "<group>"; };
+		02936E4D2BAB664E00231C81 /* deuteranopia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deuteranopia.png; sourceTree = "<group>"; };
+		02936E4E2BAB664E00231C81 /* original.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = original.png; sourceTree = "<group>"; };
+		02936E4F2BAB664E00231C81 /* protanopia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = protanopia.png; sourceTree = "<group>"; };
 		02EFD6A52BA5F0ED00CB4F2A /* View+Rotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Rotation.swift"; sourceTree = "<group>"; };
 		02EFD6A72BA5F11500CB4F2A /* Oklab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Oklab.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,9 +73,12 @@
 		0286422B2BA4E34100A7B1F6 /* Focal */ = {
 			isa = PBXGroup;
 			children = (
+				02936E4A2BAB65C300231C81 /* Precomputed Transforms */,
 				0286422C2BA4E34100A7B1F6 /* FocalApp.swift */,
 				0286422E2BA4E34100A7B1F6 /* ContentView.swift */,
 				02EFD6A52BA5F0ED00CB4F2A /* View+Rotation.swift */,
+				02936E482BAB64F600231C81 /* Sample.swift */,
+				02936E4B2BAB65E400231C81 /* TunedTransform.swift */,
 				02EFD6A72BA5F11500CB4F2A /* Oklab.swift */,
 				028642302BA4E34200A7B1F6 /* Assets.xcassets */,
 				028642322BA4E34200A7B1F6 /* Focal.entitlements */,
@@ -87,6 +100,24 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		02936E4A2BAB65C300231C81 /* Precomputed Transforms */ = {
+			isa = PBXGroup;
+			children = (
+				02936E532BAB666100231C81 /* Dichromat */,
+				02936E4E2BAB664E00231C81 /* original.png */,
+			);
+			path = "Precomputed Transforms";
+			sourceTree = "<group>";
+		};
+		02936E532BAB666100231C81 /* Dichromat */ = {
+			isa = PBXGroup;
+			children = (
+				02936E4F2BAB664E00231C81 /* protanopia.png */,
+				02936E4D2BAB664E00231C81 /* deuteranopia.png */,
+			);
+			path = Dichromat;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,6 +186,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02936E522BAB664E00231C81 /* protanopia.png in Resources */,
+				02936E512BAB664E00231C81 /* original.png in Resources */,
+				02936E502BAB664E00231C81 /* deuteranopia.png in Resources */,
 				028642352BA4E34200A7B1F6 /* Preview Assets.xcassets in Resources */,
 				028642312BA4E34200A7B1F6 /* Assets.xcassets in Resources */,
 			);
@@ -167,10 +201,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02936E492BAB64F600231C81 /* Sample.swift in Sources */,
 				02EFD6A82BA5F11500CB4F2A /* Oklab.swift in Sources */,
 				0286422F2BA4E34100A7B1F6 /* ContentView.swift in Sources */,
 				02EFD6A62BA5F0ED00CB4F2A /* View+Rotation.swift in Sources */,
 				0286422D2BA4E34100A7B1F6 /* FocalApp.swift in Sources */,
+				02936E4C2BAB65E400231C81 /* TunedTransform.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

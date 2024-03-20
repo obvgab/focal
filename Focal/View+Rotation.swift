@@ -76,6 +76,3 @@ extension View {
 #else
 extension View { public func rotation() -> some View { return self } }
 #endif
-
-
-
