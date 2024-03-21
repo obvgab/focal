@@ -10,3 +10,15 @@
 // Figure out how to use Oklab (perceptual) instead of YCbCr (linear) color space
 // ^ This should also help with luminance issues and may make computation simpler
 
+import MetalKit
+import AVFoundation
+
+class SamplingDelegate: NSObject, MTKViewDeviceAwareDelegate {
+    var device: (any MTLDevice)!
+    
+    required init(with device: any MTLDevice) {}
+    
+    func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {}
+    
+    func draw(in view: MTKView) {}
+}

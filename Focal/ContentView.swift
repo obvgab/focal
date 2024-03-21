@@ -12,8 +12,10 @@ struct ContentView: View {
                 .imageScale(.large)
                 .foregroundStyle(.tint)
             Text("Hello, world!")
+            MetalView<SamplingDelegate>(.auto)
+                .framebufferOnly(false)
+                .preferredFramesPerSecond(60)
         }
-        .padding()
     }
 }
 

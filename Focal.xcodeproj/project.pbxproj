@@ -19,6 +19,7 @@
 		02936E502BAB664E00231C81 /* deuteranopia.png in Resources */ = {isa = PBXBuildFile; fileRef = 02936E4D2BAB664E00231C81 /* deuteranopia.png */; };
 		02936E512BAB664E00231C81 /* original.png in Resources */ = {isa = PBXBuildFile; fileRef = 02936E4E2BAB664E00231C81 /* original.png */; };
 		02936E522BAB664E00231C81 /* protanopia.png in Resources */ = {isa = PBXBuildFile; fileRef = 02936E4F2BAB664E00231C81 /* protanopia.png */; };
+		02936E552BAB9A4100231C81 /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02936E542BAB9A4100231C81 /* MetalView.swift */; };
 		02EFD6A62BA5F0ED00CB4F2A /* View+Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EFD6A52BA5F0ED00CB4F2A /* View+Rotation.swift */; };
 		02EFD6A82BA5F11500CB4F2A /* Oklab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EFD6A72BA5F11500CB4F2A /* Oklab.swift */; };
 /* End PBXBuildFile section */
@@ -35,6 +36,7 @@
 		02936E4D2BAB664E00231C81 /* deuteranopia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deuteranopia.png; sourceTree = "<group>"; };
 		02936E4E2BAB664E00231C81 /* original.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = original.png; sourceTree = "<group>"; };
 		02936E4F2BAB664E00231C81 /* protanopia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = protanopia.png; sourceTree = "<group>"; };
+		02936E542BAB9A4100231C81 /* MetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
 		02EFD6A52BA5F0ED00CB4F2A /* View+Rotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Rotation.swift"; sourceTree = "<group>"; };
 		02EFD6A72BA5F11500CB4F2A /* Oklab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Oklab.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,11 +76,12 @@
 			isa = PBXGroup;
 			children = (
 				02936E4A2BAB65C300231C81 /* Precomputed Transforms */,
-				0286422C2BA4E34100A7B1F6 /* FocalApp.swift */,
 				0286422E2BA4E34100A7B1F6 /* ContentView.swift */,
-				02EFD6A52BA5F0ED00CB4F2A /* View+Rotation.swift */,
+				0286422C2BA4E34100A7B1F6 /* FocalApp.swift */,
+				02936E542BAB9A4100231C81 /* MetalView.swift */,
 				02936E482BAB64F600231C81 /* Sample.swift */,
 				02936E4B2BAB65E400231C81 /* TunedTransform.swift */,
+				02EFD6A52BA5F0ED00CB4F2A /* View+Rotation.swift */,
 				02EFD6A72BA5F11500CB4F2A /* Oklab.swift */,
 				028642302BA4E34200A7B1F6 /* Assets.xcassets */,
 				028642322BA4E34200A7B1F6 /* Focal.entitlements */,
@@ -202,6 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02936E492BAB64F600231C81 /* Sample.swift in Sources */,
+				02936E552BAB9A4100231C81 /* MetalView.swift in Sources */,
 				02EFD6A82BA5F11500CB4F2A /* Oklab.swift in Sources */,
 				0286422F2BA4E34100A7B1F6 /* ContentView.swift in Sources */,
 				02EFD6A62BA5F0ED00CB4F2A /* View+Rotation.swift in Sources */,
@@ -341,6 +345,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSCameraUsageDescription = "To see the world around you and recolor it";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -380,6 +385,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSCameraUsageDescription = "To see the world around you and recolor it";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
