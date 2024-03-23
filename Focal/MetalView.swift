@@ -69,11 +69,7 @@ extension MetalView {
 #if os(iOS)
 import UIKit
 
-struct MetalView<Delegate: MTKViewDeviceAwareDelegate>: UIViewRepresentable {
-    var device: MTLDevice!
-    var delegate: Delegate
-    var config: Configuration
-    
+extension MetalView: UIViewRepresentable {
     func makeUIView(context: Context) -> MTKView { makeView(context: context) }
     func updateUIView(_ uiView: MTKView, context: Context) { updateView(uiView, context: context) }
 }

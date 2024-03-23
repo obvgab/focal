@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0234CC9D2BAEA4F400BD4F54 /* Sampler.metal in Sources */ = {isa = PBXBuildFile; fileRef = 0234CC9C2BAEA4F400BD4F54 /* Sampler.metal */; };
 		0286422D2BA4E34100A7B1F6 /* FocalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0286422C2BA4E34100A7B1F6 /* FocalApp.swift */; };
 		0286422F2BA4E34100A7B1F6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0286422E2BA4E34100A7B1F6 /* ContentView.swift */; };
 		028642312BA4E34200A7B1F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 028642302BA4E34200A7B1F6 /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0234CC9C2BAEA4F400BD4F54 /* Sampler.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Sampler.metal; sourceTree = "<group>"; };
 		028642292BA4E34100A7B1F6 /* Focal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Focal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0286422C2BA4E34100A7B1F6 /* FocalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocalApp.swift; sourceTree = "<group>"; };
 		0286422E2BA4E34100A7B1F6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				0286422C2BA4E34100A7B1F6 /* FocalApp.swift */,
 				02936E542BAB9A4100231C81 /* MetalView.swift */,
 				02936E482BAB64F600231C81 /* Sample.swift */,
+				0234CC9C2BAEA4F400BD4F54 /* Sampler.metal */,
 				02936E4B2BAB65E400231C81 /* TunedTransform.swift */,
 				02EFD6A52BA5F0ED00CB4F2A /* View+Rotation.swift */,
 				02EFD6A72BA5F11500CB4F2A /* Oklab.swift */,
@@ -206,6 +209,7 @@
 			files = (
 				02936E492BAB64F600231C81 /* Sample.swift in Sources */,
 				02936E552BAB9A4100231C81 /* MetalView.swift in Sources */,
+				0234CC9D2BAEA4F400BD4F54 /* Sampler.metal in Sources */,
 				02EFD6A82BA5F11500CB4F2A /* Oklab.swift in Sources */,
 				0286422F2BA4E34100A7B1F6 /* ContentView.swift in Sources */,
 				02EFD6A62BA5F0ED00CB4F2A /* View+Rotation.swift in Sources */,
