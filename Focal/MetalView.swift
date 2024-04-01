@@ -11,10 +11,13 @@ protocol MTKViewDeviceAwareDelegate: MTKViewDelegate { var device: MTLDevice! { 
 struct MetalView<Delegate: MTKViewDeviceAwareDelegate> {
     var device: MTLDevice!
     var delegate: Delegate
+    var mtkView: MTKView!
     
-    @Binding private var framebufferOnly: Bool
-    @Binding private var preferredFramesPerSecond: Int
-    // Fill out rest of fields
+    @State private var config: Configuration
+    class Configuration {
+        var framebufferOnly: Bool = false
+        var preferredFramesPerSecond: Int = 30
+    }
 }
 
 extension MetalView {
@@ -34,19 +37,17 @@ extension MetalView {
         }
         
         delegate = Delegate(with: device)
-        _framebufferOnly = .constant(true)
-        _preferredFramesPerSecond = .constant(30)
+        config = Configuration()
+        mtkView = MTKView()
     }
     
     func updateMetalValues(_ view: MTKView) {
-        view.framebufferOnly = framebufferOnly
-        view.preferredFramesPerSecond = preferredFramesPerSecond
+        view.framebufferOnly = config.framebufferOnly
+        view.preferredFramesPerSecond = config.preferredFramesPerSecond
         // Fill out rest of fields
     }
     
     func makeView(context: Context) -> MTKView {
-        let mtkView = MTKView()
-        
         mtkView.device = self.device
         mtkView.delegate = self.delegate
         
@@ -59,11 +60,8 @@ extension MetalView {
 }
 
 extension MetalView {
-    mutating func framebufferOnly(_ bool: Binding<Bool>) -> Self { _framebufferOnly = bool; return self }
-    mutating func preferredFramesPerSecond(_ hz: Binding<Int>) -> Self { _preferredFramesPerSecond = hz; return self }
-    
-    func framebufferOnly(_ bool: Bool) -> Self { framebufferOnly = bool; return self }
-    func preferredFramesPerSecond(_ hz: Int) -> Self { preferredFramesPerSecond = hz; return self }
+    func framebufferOnly(_ bool: Bool) -> Self { config.framebufferOnly = bool; return self }
+    func preferredFramesPerSecond(_ hz: Int) -> Self { config.preferredFramesPerSecond = hz; return self }
 }
 
 #if os(iOS)

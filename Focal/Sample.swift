@@ -24,6 +24,7 @@ class SamplingDelegate: NSObject, MTKViewDeviceAwareDelegate, AVCaptureVideoData
     var currentFrameTexture: MTLTexture?
     
     var device: (any MTLDevice)!
+    var loader: MTKTextureLoader
     var commandQueue: MTLCommandQueue!
     var pipelineState: MTLRenderPipelineState!
     var replacementTexture: MTLTexture!
@@ -34,19 +35,25 @@ class SamplingDelegate: NSObject, MTKViewDeviceAwareDelegate, AVCaptureVideoData
     var captureSession = AVCaptureSession()
     var currentInputDevice: AVCaptureDevice?
     var currentInputMirrored = false
-    var currentInputRotationCoordinator: AVCaptureDevice.RotationCoordinator?
     
     required init(with device: any MTLDevice) {
         self.device = device
+        self.loader = MTKTextureLoader(device: device)
         CVMetalTextureCacheCreate(nil, nil, device, nil, &textureCache)
         
-        let loader = MTKTextureLoader(device: device)
-        let url = Bundle.main.url(forResource: "deuteranopia", withExtension: "png")!
-        replacementTexture = try? loader.newTexture(URL: url, options: [.SRGB: false, .textureStorageMode: MTLStorageMode.shared.rawValue])
+        let url = Bundle.main.url(forResource: "original", withExtension: "png")!
+        replacementTexture = try? loader.newTexture(URL: url,
+                                                    options: [.SRGB: false, .textureStorageMode: MTLStorageMode.shared.rawValue])
         
         super.init()
         
         Task { await setupMetal(); await setupCapture() }
+    }
+    
+    func changeReplacementTexture(_ textureName: String) {
+        let url = Bundle.main.url(forResource: textureName, withExtension: "png")!
+        replacementTexture = try? loader.newTexture(URL: url,
+                                                    options: [.SRGB: false, .textureStorageMode: MTLStorageMode.shared.rawValue])
     }
     
     func setupMetal() async {
@@ -73,7 +80,7 @@ class SamplingDelegate: NSObject, MTKViewDeviceAwareDelegate, AVCaptureVideoData
         #if os(macOS)
         let types: [AVCaptureDevice.DeviceType] = [.external, .continuityCamera, .deskViewCamera, .builtInWideAngleCamera]
         #else
-        let types: [AVCaptureDevice.DeviceType] = [.builtInDualCamera, .builtInUltraWideCamera, .builtInTelephotoCamera, .external, .continuityCamera]
+        let types: [AVCaptureDevice.DeviceType] = [.builtInDualWideCamera, .builtInTelephotoCamera, .builtInDualCamera, .builtInUltraWideCamera, .external, .continuityCamera]
         #endif
         
         let discovery = AVCaptureDevice.DiscoverySession(
@@ -81,31 +88,45 @@ class SamplingDelegate: NSObject, MTKViewDeviceAwareDelegate, AVCaptureVideoData
             mediaType: .video,
             position: .unspecified)
         
-        let output = AVCaptureVideoDataOutput()
-        output.setSampleBufferDelegate(self, queue: DispatchQueue(label: "ai.binarysky.samplingDelegate", qos: .userInteractive))
-        output.videoSettings = [(kCVPixelBufferPixelFormatTypeKey as String): kCVPixelFormatType_32BGRA]
-        
         // TODO: allow selection of device, we'll just get the first here
         // TODO: Allow for screen capture instead of camera
         
-        if let input = discovery.devices.first,
-           let inputDevice = try? AVCaptureDeviceInput(device: input) {
-            
-            captureSession.addInput(inputDevice)
-            captureSession.addOutput(output)
+        var input = discovery.devices.first
+        var activeFormat = input?.activeFormat
+        
+        for device in discovery.devices {
+            for format in device.formats {
+                let ranges = format.videoSupportedFrameRateRanges.map { $0.maxFrameRate }.filter { $0 >= 59.0 }
+                if !ranges.isEmpty { input = device; activeFormat = format }
+            }
+        }
+        
+        if let input = input,
+           let activeFormat = activeFormat,
+           let wrappedInput = try? AVCaptureDeviceInput(device: input) {
+            captureSession.addInput(wrappedInput)
             currentInputDevice = input
             if input.position == .unspecified || input.position == .front { currentInputMirrored = true }
             
-            captureSession.startRunning()
-        }
-    }
-    
-    func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
-        guard currentInputRotationCoordinator == nil else { return }
-        if let input = currentInputDevice {
-            currentInputRotationCoordinator = AVCaptureDevice.RotationCoordinator(device: input, previewLayer: view.layer)
+            try? input.lockForConfiguration()
+            
+            input.activeFormat = activeFormat
+            input.activeVideoMinFrameDuration = CMTimeMake(value: 1, timescale: 60)
+            input.activeVideoMaxFrameDuration = CMTimeMake(value: 1, timescale: 60)
+            
+            input.unlockForConfiguration()
         }
         
+        let output = AVCaptureVideoDataOutput()
+        output.setSampleBufferDelegate(self, queue: DispatchQueue(label: "ai.binarysky.samplingDelegate", qos: .userInteractive))
+        output.alwaysDiscardsLateVideoFrames = true
+        output.videoSettings = [(kCVPixelBufferPixelFormatTypeKey as String): kCVPixelFormatType_32BGRA]
+        captureSession.addOutput(output)
+        
+        captureSession.startRunning()
+    }
+    
+    func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {        
         let frame = (width: Float(view.frame.size.width), height: Float(view.frame.size.height))
         let vertices: [Vertex] = [
             .init(position: SIMD4(0.0, 0.0, 0.0, 1.0), textureCoordinates: SIMD2(0.0, 0.0)),
@@ -124,6 +145,10 @@ class SamplingDelegate: NSObject, MTKViewDeviceAwareDelegate, AVCaptureVideoData
     }
     
     func draw(in view: MTKView) {
+        #if os(iOS)
+        view.layer.transform = CATransform3DMakeRotation(.pi / 2, 0, 0, 1)
+        #endif
+        
         guard let drawable = view.currentDrawable,
               let currentFrameTexture = self.currentFrameTexture,
               let commandBuffer = commandQueue.makeCommandBuffer(),
@@ -143,7 +168,7 @@ class SamplingDelegate: NSObject, MTKViewDeviceAwareDelegate, AVCaptureVideoData
         commandEncoder.drawPrimitives(type: .triangleStrip, vertexStart: 0, vertexCount: 4)
         
         commandEncoder.endEncoding()
-        commandBuffer.present(drawable)
+        commandBuffer.present(drawable, afterMinimumDuration: 1.0/Double(view.preferredFramesPerSecond))
         commandBuffer.commit()
         
         self.currentFrameTexture = nil
@@ -170,5 +195,31 @@ class SamplingDelegate: NSObject, MTKViewDeviceAwareDelegate, AVCaptureVideoData
                                                   &cvTextureOut)
 
         if let cv = cvTextureOut { self.currentFrameTexture = CVMetalTextureGetTexture(cv) }
+    }
+}
+
+extension AVCaptureDevice {
+    @discardableResult
+    func set(frameRate: Double) -> Bool {
+        do { try lockForConfiguration()
+            activeFormat = formats.sorted(by: { f1, f2 in
+                f1.formatDescription.dimensions.height > f2.formatDescription.dimensions.height
+                && f1.formatDescription.dimensions.width > f2.formatDescription.dimensions.width
+            }).first { format in format.videoSupportedFrameRateRanges.contains { range in range.maxFrameRate == frameRate } } ?? activeFormat
+            
+            guard let range = activeFormat.videoSupportedFrameRateRanges.first,
+                  range.minFrameRate...range.maxFrameRate ~= frameRate else {
+                print("Requested FPS is not supported by the device's activeFormat !")
+                return false
+            }
+            
+            activeVideoMinFrameDuration = CMTimeMake(value: 1, timescale: Int32(frameRate))
+            activeVideoMaxFrameDuration = CMTimeMake(value: 1, timescale: Int32(frameRate))
+            unlockForConfiguration()
+            return true
+        } catch {
+            print("LockForConfiguration failed with error: \(error.localizedDescription)")
+            return false
+        }
     }
 }

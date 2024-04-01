@@ -8,13 +8,12 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
             MetalView<SamplingDelegate>(.auto)
                 .framebufferOnly(false)
                 .preferredFramesPerSecond(60)
+                .clipShape(.rect(cornerRadii: .init(topLeading: 0, bottomLeading: 15, bottomTrailing: 15, topTrailing: 0)))
+                .ignoresSafeArea()
+            Text("Nice")
         }
     }
 }

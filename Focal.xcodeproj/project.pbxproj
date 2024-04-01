@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0234CC9D2BAEA4F400BD4F54 /* Sampler.metal in Sources */ = {isa = PBXBuildFile; fileRef = 0234CC9C2BAEA4F400BD4F54 /* Sampler.metal */; };
+		025685E12BBB594A002398DA /* deuteranopia-sim-machado.png in Resources */ = {isa = PBXBuildFile; fileRef = 025685E02BBB594A002398DA /* deuteranopia-sim-machado.png */; };
 		0286422D2BA4E34100A7B1F6 /* FocalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0286422C2BA4E34100A7B1F6 /* FocalApp.swift */; };
 		0286422F2BA4E34100A7B1F6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0286422E2BA4E34100A7B1F6 /* ContentView.swift */; };
 		028642312BA4E34200A7B1F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 028642302BA4E34200A7B1F6 /* Assets.xcassets */; };
@@ -17,9 +18,9 @@
 		028642442BA4EB9E00A7B1F6 /* MLXLinalg in Frameworks */ = {isa = PBXBuildFile; productRef = 028642432BA4EB9E00A7B1F6 /* MLXLinalg */; };
 		02936E492BAB64F600231C81 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02936E482BAB64F600231C81 /* Sample.swift */; };
 		02936E4C2BAB65E400231C81 /* TunedTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02936E4B2BAB65E400231C81 /* TunedTransform.swift */; };
-		02936E502BAB664E00231C81 /* deuteranopia.png in Resources */ = {isa = PBXBuildFile; fileRef = 02936E4D2BAB664E00231C81 /* deuteranopia.png */; };
+		02936E502BAB664E00231C81 /* deuteranopia-datlon-nvidia.png in Resources */ = {isa = PBXBuildFile; fileRef = 02936E4D2BAB664E00231C81 /* deuteranopia-datlon-nvidia.png */; };
 		02936E512BAB664E00231C81 /* original.png in Resources */ = {isa = PBXBuildFile; fileRef = 02936E4E2BAB664E00231C81 /* original.png */; };
-		02936E522BAB664E00231C81 /* protanopia.png in Resources */ = {isa = PBXBuildFile; fileRef = 02936E4F2BAB664E00231C81 /* protanopia.png */; };
+		02936E522BAB664E00231C81 /* protanopia-dalton-nvidia.png in Resources */ = {isa = PBXBuildFile; fileRef = 02936E4F2BAB664E00231C81 /* protanopia-dalton-nvidia.png */; };
 		02936E552BAB9A4100231C81 /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02936E542BAB9A4100231C81 /* MetalView.swift */; };
 		02EFD6A62BA5F0ED00CB4F2A /* View+Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EFD6A52BA5F0ED00CB4F2A /* View+Rotation.swift */; };
 		02EFD6A82BA5F11500CB4F2A /* Oklab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EFD6A72BA5F11500CB4F2A /* Oklab.swift */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		0234CC9C2BAEA4F400BD4F54 /* Sampler.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Sampler.metal; sourceTree = "<group>"; };
+		025685E02BBB594A002398DA /* deuteranopia-sim-machado.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "deuteranopia-sim-machado.png"; sourceTree = "<group>"; };
 		028642292BA4E34100A7B1F6 /* Focal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Focal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0286422C2BA4E34100A7B1F6 /* FocalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocalApp.swift; sourceTree = "<group>"; };
 		0286422E2BA4E34100A7B1F6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -35,9 +37,9 @@
 		028642342BA4E34200A7B1F6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		02936E482BAB64F600231C81 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
 		02936E4B2BAB65E400231C81 /* TunedTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunedTransform.swift; sourceTree = "<group>"; };
-		02936E4D2BAB664E00231C81 /* deuteranopia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deuteranopia.png; sourceTree = "<group>"; };
+		02936E4D2BAB664E00231C81 /* deuteranopia-datlon-nvidia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "deuteranopia-datlon-nvidia.png"; sourceTree = "<group>"; };
 		02936E4E2BAB664E00231C81 /* original.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = original.png; sourceTree = "<group>"; };
-		02936E4F2BAB664E00231C81 /* protanopia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = protanopia.png; sourceTree = "<group>"; };
+		02936E4F2BAB664E00231C81 /* protanopia-dalton-nvidia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "protanopia-dalton-nvidia.png"; sourceTree = "<group>"; };
 		02936E542BAB9A4100231C81 /* MetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
 		02EFD6A52BA5F0ED00CB4F2A /* View+Rotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Rotation.swift"; sourceTree = "<group>"; };
 		02EFD6A72BA5F11500CB4F2A /* Oklab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Oklab.swift; sourceTree = "<group>"; };
@@ -57,6 +59,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		025685DF2BBB575D002398DA /* Dichromat Simulations */ = {
+			isa = PBXGroup;
+			children = (
+				025685E02BBB594A002398DA /* deuteranopia-sim-machado.png */,
+			);
+			path = "Dichromat Simulations";
+			sourceTree = "<group>";
+		};
 		028642202BA4E34100A7B1F6 = {
 			isa = PBXGroup;
 			children = (
@@ -111,19 +121,20 @@
 		02936E4A2BAB65C300231C81 /* Precomputed Transforms */ = {
 			isa = PBXGroup;
 			children = (
-				02936E532BAB666100231C81 /* Dichromat */,
+				025685DF2BBB575D002398DA /* Dichromat Simulations */,
+				02936E532BAB666100231C81 /* Dichromat Corrections */,
 				02936E4E2BAB664E00231C81 /* original.png */,
 			);
 			path = "Precomputed Transforms";
 			sourceTree = "<group>";
 		};
-		02936E532BAB666100231C81 /* Dichromat */ = {
+		02936E532BAB666100231C81 /* Dichromat Corrections */ = {
 			isa = PBXGroup;
 			children = (
-				02936E4F2BAB664E00231C81 /* protanopia.png */,
-				02936E4D2BAB664E00231C81 /* deuteranopia.png */,
+				02936E4F2BAB664E00231C81 /* protanopia-dalton-nvidia.png */,
+				02936E4D2BAB664E00231C81 /* deuteranopia-datlon-nvidia.png */,
 			);
-			path = Dichromat;
+			path = "Dichromat Corrections";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,9 +203,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02936E522BAB664E00231C81 /* protanopia.png in Resources */,
+				025685E12BBB594A002398DA /* deuteranopia-sim-machado.png in Resources */,
+				02936E522BAB664E00231C81 /* protanopia-dalton-nvidia.png in Resources */,
 				02936E512BAB664E00231C81 /* original.png in Resources */,
-				02936E502BAB664E00231C81 /* deuteranopia.png in Resources */,
+				02936E502BAB664E00231C81 /* deuteranopia-datlon-nvidia.png in Resources */,
 				028642352BA4E34200A7B1F6 /* Preview Assets.xcassets in Resources */,
 				028642312BA4E34200A7B1F6 /* Assets.xcassets in Resources */,
 			);
