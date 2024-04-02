@@ -18,7 +18,6 @@ struct ContentView: View {
                 .ignoresSafeArea()
 
             FilterPicker(selectedFilter: $selectedFilter) { type in cameraView.changeReplacementTexture(type.rawValue) }
-                .foregroundStyle(Color(red: 0.9803921569, green: 1.0, blue: 0.8980392157))
                 .padding(.horizontal, 25)
                 .padding(.vertical)
         }
@@ -76,7 +75,8 @@ struct FilterPicker: View {
                             .font(.subheadline)
                             .padding(.horizontal)
                             .padding(.vertical, 4)
-                            .background(Capsule().foregroundStyle(transform == selectedFilter ? Color(red: 0.1450980392, green: 0.1137254902, blue: 0.2117647059) : .clear))
+                            .background(Capsule().foregroundStyle(transform == selectedFilter ? Color.accentColor : .clear))
+                            .foregroundStyle(Color.primary)
                             .onTapGesture {
                                 withAnimation(.easeInOut) {
                                     selectedFilter = transform
@@ -84,7 +84,9 @@ struct FilterPicker: View {
                             }
                     }
                 }
+                .padding(.horizontal, 75)
             }
+            .fadeOutSides(fadeLength: 25)
             .onChange(of: selectedFilter) { _, transform in
                 withAnimation {
                     scrollView.scrollTo(transform, anchor: .center)
@@ -97,11 +99,34 @@ struct FilterPicker: View {
             }
         }
         .padding()
-        .background(Color(red: 0.1098039216, green: 0.09411764706, blue: 0.137254902))
-        .clipShape(.rect(cornerRadius: 25))
+        .background(Color(UIColor.systemGray6))
+        .clipShape(.rect(cornerRadius: 40))
     }
 }
 
 #Preview {
     ContentView()
+}
+
+extension View {
+    func fadeOutSides(fadeLength:CGFloat=50) -> some View {
+        return mask(
+            HStack(spacing: 0) {
+                
+                LinearGradient(gradient: Gradient(
+                    colors: [Color.black.opacity(0), Color.black]),
+                    startPoint: .leading, endPoint: .trailing
+                )
+                .frame(width: fadeLength)
+                
+                Rectangle().fill(Color.black)
+
+                LinearGradient(gradient: Gradient(
+                    colors: [Color.black, Color.black.opacity(0)]),
+                    startPoint: .leading, endPoint: .trailing
+                )
+                .frame(width: fadeLength)
+            }
+        )
+    }
 }

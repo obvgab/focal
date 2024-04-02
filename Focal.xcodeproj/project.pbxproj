@@ -31,6 +31,7 @@
 		0234CC9C2BAEA4F400BD4F54 /* Sampler.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Sampler.metal; sourceTree = "<group>"; };
 		025685E02BBB594A002398DA /* deuteranopia-sim-machado.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "deuteranopia-sim-machado.png"; sourceTree = "<group>"; };
 		025685E22BBB5C38002398DA /* protanopia-sim-machado.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "protanopia-sim-machado.png"; sourceTree = "<group>"; };
+		0268A20A2BBBC4F800D6ED16 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		028642292BA4E34100A7B1F6 /* Focal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Focal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0286422C2BA4E34100A7B1F6 /* FocalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocalApp.swift; sourceTree = "<group>"; };
 		0286422E2BA4E34100A7B1F6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -73,6 +74,7 @@
 		028642202BA4E34100A7B1F6 = {
 			isa = PBXGroup;
 			children = (
+				0268A20A2BBBC4F800D6ED16 /* README.md */,
 				0286422B2BA4E34100A7B1F6 /* Focal */,
 				0286422A2BA4E34100A7B1F6 /* Products */,
 				028642422BA4EB9E00A7B1F6 /* Frameworks */,
