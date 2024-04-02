@@ -94,6 +94,8 @@ class SamplingDelegate: NSObject, MTKViewDeviceAwareDelegate, AVCaptureVideoData
         var input = discovery.devices.first
         var activeFormat = input?.activeFormat
         
+        captureSession.sessionPreset = .hd1920x1080
+        
         for device in discovery.devices {
             for format in device.formats {
                 let ranges = format.videoSupportedFrameRateRanges.map { $0.maxFrameRate }.filter { $0 >= 59.0 }
