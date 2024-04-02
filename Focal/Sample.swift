@@ -170,7 +170,7 @@ class SamplingDelegate: NSObject, MTKViewDeviceAwareDelegate, AVCaptureVideoData
         commandEncoder.drawPrimitives(type: .triangleStrip, vertexStart: 0, vertexCount: 4)
         
         commandEncoder.endEncoding()
-        commandBuffer.present(drawable, afterMinimumDuration: 1.0/Double(view.preferredFramesPerSecond))
+        commandBuffer.present(drawable)
         commandBuffer.commit()
         
         self.currentFrameTexture = nil
